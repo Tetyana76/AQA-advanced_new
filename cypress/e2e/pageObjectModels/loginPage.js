@@ -11,7 +11,7 @@ class LoginDetails {
 }
 class LoginPage {
     signInButton() {
-    return cy.get('button.btn.btn-outline-white.header_signin', { timeout: 10000 }).should('be.visible');
+        return cy.get('button.btn.btn-outline-white.header_signin', { timeout: 10000 }).should('be.visible');
     }
 
     signinEmail() {
@@ -33,6 +33,10 @@ class LoginPage {
     verifyGaragePageElements() {
         cy.contains("Garage").should("be.visible"); 
     }
+    
+    hidePassword(password) {
+        cy.get('input#signinPassword', { timeout: 3000 }).should('not.be.disabled').type(password, { sensitive: true });
+    }2
 }
 
 export { LoginDetails, LoginPage };

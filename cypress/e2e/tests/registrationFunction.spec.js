@@ -19,7 +19,7 @@ it("Check an error message if 'Name' field is empty and red borders", () => {
     registration.nameRequired().should("be.visible").and("contain.text", "Name required");
     registration.signupName()
       .should("have.css", "border-color")
-      .and("eq", "rgb(220, 53, 69)"); // Assuming red color is used for the error border
+      .and("eq", "rgb(220, 53, 69)"); 
     });
 
 it("Check an error message for invalid name input and red borders", () => {
@@ -54,7 +54,7 @@ it("Check an error message if 'Last Name' field is empty and red borders", () =>
     registration.lastNameRequired().should("be.visible").and("contain.text", "Last name required");
     registration.signupLastName()
       .should("have.css", "border-color")
-      .and("eq", "rgb(220, 53, 69)"); // Assuming red color is used for the error border
+      .and("eq", "rgb(220, 53, 69)");
     });
 
 it("Check an error message for invalid Last Name input and red borders", () => {
