@@ -1,20 +1,4 @@
 class Registration {
-    // signInButton() {
-    //     return cy.get('button.btn.btn-outline-white.header_signin');
-    // }
-
-    // signinEmail() {
-    //     return cy.get("input#signinEmail");
-    // }
-
-    // signinPassword() {
-    //     return cy.get("input#signinPassword");
-    // }
-    
-    // loginButton() {
-    //     return cy.contains('button', 'Registration'); 
-    // }
-
     registrationButton() {
         return cy.contains('button', 'Registration'); 
     }
@@ -90,15 +74,6 @@ class Registration {
     registerButton() {
         return cy.get('button.btn.btn-primary[type="button"]');
     }   
-
-
-    // verifyRedirectToGaragePage() {
-    //     cy.url().should("eq", "https://qauto.forstudy.space/panel/garage");
-    // }
-
-    // verifyGaragePageElements() {
-    //     cy.contains("Garage").should("be.visible"); 
-    // }
 }
 
 export default Registration;
