@@ -12,10 +12,12 @@ import { LoginPage, LoginDetails } from '../e2e/pageObjectModels/loginPage';
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
+Cypress.Commands.add('login', () => {
+    const email = Cypress.env('user').email;  // Use Cypress.env() to get values
+    const password = Cypress.env('user').password;  // Same for password
     const loginPage = new LoginPage();
-    const loginDetails = new LoginDetails()
-    loginDetails.navigateToMainPageWithLogin();
+      // const loginDetails = new LoginDetails();
+    // loginDetails.navigateToMainPageWithLogin();
     loginPage.signInButton().click(); 
     loginPage.signinEmail().type(email); 
     loginPage.signinPassword().type(password); 

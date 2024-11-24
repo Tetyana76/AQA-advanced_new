@@ -3,3 +3,4 @@ cypress/downloads
 cypress/screenshots
 cypress/testFolder
 cypress/videos
+cypress/results
