@@ -60,6 +60,39 @@ class FuelExpensesPage {
         return cy.contains('p', 'Total cost has to be from 0.01 to 1000000'); 
     }
 
+    checkMileageInTable(mileageValue) {
+    cy.contains('th', 'Mileage')
+        .invoke('index')
+        .then((index) => {
+            cy.get('tr')
+                .contains('td', mileageValue)
+                .should('exist');
+        });
+    }
+
+    checkLitersInTable(litersValue) {
+    cy.contains('th', 'Liters used')
+        .invoke('index')
+        .then((index) => {
+            cy.get('tr')
+                .contains('td', litersValue)
+                .should('exist');
+        });
+    }
+
+    checkTotalCostInTable(totalCostValue) {
+    cy.contains('th', 'Total cost')
+        .invoke('index')
+        .then((index) => {
+            cy.get('tr')
+                .contains('td', totalCostValue)
+                .should('exist');
+        });
+    }
+
+    openFuelExpensesPage() {
+        cy.get('a.btn.header-link').contains('Fuel expenses').click();  
+    }
 
 }
 

@@ -11,7 +11,7 @@ function getConfigurationByFile(file) {
 export default defineConfig({
   retries: { runMode: 0, openMode: 0 },
   screenshotsFolder: 'cypress/screenshots',
-  video: true,
+  video: false,
   viewportWidth: 1400,
   viewportHeight: 900,
   chromeWebSecurity: false,

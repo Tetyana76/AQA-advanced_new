@@ -26,6 +26,36 @@ Cypress.Commands.add('login', () => {
     loginPage.verifyGaragePageElements();
 });
 
+Cypress.Commands.add("createExpense", (carId, mileage, liters, totalCost) => {
+    const reportedAt = new Date().toISOString();
+
+    cy.request({
+        method: "POST",
+        url: "https://qauto.forstudy.space/api/expenses",
+        body: {
+            carId: carId,
+            reportedAt: reportedAt,
+            mileage: mileage,
+            liters: liters,
+            totalCost: totalCost
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body).to.have.property("status", "ok");
+        expect(response.body).to.have.property("data");
+
+        const expenseData = response.body.data;
+        expect(expenseData).to.have.property("id");
+        expect(expenseData.carId).to.eq(carId);
+        expect(expenseData.reportedAt).to.eq(reportedAt);
+        expect(expenseData.mileage).to.eq(mileage);
+        expect(expenseData.liters).to.eq(liters);
+        expect(expenseData.totalCost).to.eq(totalCost);
+
+        return expenseData.id;
+    });
+});
+
 //
 //
 // -- This is a child command --
