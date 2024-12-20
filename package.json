@@ -10,7 +10,8 @@
     "test:qauto": "cypress run --env configFile=qauto --reporter mochawesome --reporter-options reportDir=cypress/results",
     "test:qauto2": "cypress run --env configFile=qauto2 --reporter mochawesome --reporter-options reportDir=cypress/results",
     "generate-report": "npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json",
-    "test:headless": "cypress run --browser chrome --headless"
+    "test:headless": "cypress run --browser chrome --headless",
+    "test:dockers-firefox": "cypress run --browser firefox"
   },
   "author": "",
   "license": "ISC",

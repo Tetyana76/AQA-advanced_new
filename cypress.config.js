@@ -23,6 +23,7 @@ export default defineConfig({
     "json": true
   },
   e2e: {
+    chromeWebSecurity: false,
     specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}',
     setupNodeEvents(on, config) {
       on('task', {

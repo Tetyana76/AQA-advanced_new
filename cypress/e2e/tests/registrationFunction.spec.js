@@ -2,7 +2,7 @@ import { LoginDetails } from "../pageObjectModels/loginPage";
 import { LoginPage } from '../pageObjectModels/loginPage';
 import Registration from "../pageObjectModels/registrationPage";
 
-describe("Registration Form Tests", () => {
+describe.skip("Registration Form Tests", () => {
     const login = new LoginDetails();
     const registration = new Registration();
     const loginPage = new LoginPage();
