@@ -29,6 +29,10 @@ jobs:
         run: npm ci
       - name: Run Cypress tests
         run: npm run cypress:run --  --browser chrome
+        with:
+          browser: chrome
+          name: cypress-report
+          path: ./cypress/results
   test-cypress: 
     name: 'Cypress default config tests'
     needs: test-cypress-custom
@@ -42,7 +46,3 @@ jobs:
         run: npm ci
       - name: Run Cypress default command tests
         uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
-          name: cypress-report
-          path: ./cypress/results
