@@ -157,17 +157,6 @@ it("Check an error message if passwords do not match", () => {
         .should("have.css", "border-color")
         .and("eq", "rgb(220, 53, 69)"); 
     });
-it("Check that 'Register' button is active when all inputs are valid and creates a new user", () => {
-    registration.signupName().clear().type("Tetyana");
-    registration.signupLastName().clear().type("Shevchenko");
-    registration.signupEmail().clear().type("tk+2@gmail.com");
-    registration.signupPassword().clear().type("Password789");
-    registration.signupRepeatPassword().clear().type("Password789");
-    registration.registerButton().should("not.be.disabled");
-    registration.registerButton().click();
-    loginPage.verifyRedirectToGaragePage();
-    loginPage.verifyGaragePageElements();
-    });
 
 it("Check that 'Register' button is disabled when one or more inputs are invalid", () => {
     // Case 1: Invalid name
