@@ -36,7 +36,7 @@ describe("Add Cars Tests", () => {
 
     it("Check expense report for the added car with valid data", () => {
         fuelExpensesPage.addFuelExpenseButton.click();
-        const customIncrement = 500;
+        const customIncrement = 700;
         fuelExpensesPage.incrementMileageValue(customIncrement);
         fuelExpensesPage.addExpenseMileage.invoke('val').then((newValue) => {
         cy.log(`Mileage after increment: ${newValue}`);

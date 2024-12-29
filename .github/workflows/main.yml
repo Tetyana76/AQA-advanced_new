@@ -1,0 +1,58 @@
+name: CI Testing
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    types: ['opened']
+jobs:
+  lint-api: 
+    name: 'Lint API tests folder'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+  lint-cypress: 
+    name: 'Lint Cypress tests folder'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+  test-cypress-custom: 
+    name: 'Cypress custom run command'
+    needs: lint-cypress
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Cypress tests
+        run: npm run cypress:run --  --browser chrome
+  test-cypress: 
+    name: 'Cypress default config tests'
+    needs: test-cypress-custom
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Cypress default command tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          name: cypress-report
+          path: ./cypress/results

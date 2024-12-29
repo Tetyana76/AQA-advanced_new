@@ -160,9 +160,9 @@ it("Check an error message if passwords do not match", () => {
 it("Check that 'Register' button is active when all inputs are valid and creates a new user", () => {
     registration.signupName().clear().type("Tetyana");
     registration.signupLastName().clear().type("Shevchenko");
-    registration.signupEmail().clear().type("tklapchenko+2@gmail.com");
-    registration.signupPassword().clear().type("Password456");
-    registration.signupRepeatPassword().clear().type("Password456");
+    registration.signupEmail().clear().type("tk+2@gmail.com");
+    registration.signupPassword().clear().type("Password789");
+    registration.signupRepeatPassword().clear().type("Password789");
     registration.registerButton().should("not.be.disabled");
     registration.registerButton().click();
     loginPage.verifyRedirectToGaragePage();
