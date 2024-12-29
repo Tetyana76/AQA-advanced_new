@@ -61,6 +61,7 @@ describe("Add Cars Tests", () => {
     });
 
     it("Check expense report: empty Number of liters field", () => {
+        fuelExpensesPage.addFuelExpenseButton.should('be.visible').and('not.be.disabled');
         fuelExpensesPage.addFuelExpenseButton.click();
         const customIncrement = 300;
         fuelExpensesPage.incrementMileageValue(customIncrement);
