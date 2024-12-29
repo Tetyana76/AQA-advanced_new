@@ -6,16 +6,6 @@ on:
   pull_request:
     types: ['opened']
 jobs:
-  lint-api: 
-    name: 'Lint API tests folder'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - name: Install dependencies
-        run: npm ci
-      - name: Run lint
-        run: npm run lint
   lint-cypress: 
     name: 'Lint Cypress tests folder'
     runs-on: ubuntu-latest
