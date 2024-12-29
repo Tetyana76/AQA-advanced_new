@@ -31,8 +31,6 @@ jobs:
         run: npm run cypress:run --  --browser chrome
         with:
           browser: chrome
-          name: cypress-report
-          path: ./cypress/results
   test-cypress: 
     name: 'Cypress default config tests'
     needs: test-cypress-custom
